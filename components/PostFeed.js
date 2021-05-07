@@ -20,9 +20,10 @@ export default function PostFeed({ posts, admin }) {
     : null;
 }
 
-function PostItem({ post, admin = false }) {
+function PostItem({ post, admin }) {
   const wordCount = post?.content.trim().split(/\s+/g).length;
   const minutesToRead = (wordCount / 100 + 1).toFixed(0);
+  const calculateCups = (minutesToRead) => (minutesToRead < 4 ? '☕' : '☕☕');
 
   return (
     <Stack
@@ -48,7 +49,8 @@ function PostItem({ post, admin = false }) {
 
       <Stack spacing={2}>
         <Text fontSize='sm' textAlign='end'>
-          {wordCount} words. {minutesToRead} min read
+          {wordCount} words &mdash; {minutesToRead} min read{' '}
+          {calculateCups(minutesToRead)}
         </Text>
         <Text fontSize='sm' textAlign='end'>
           Spook-o-meter &#128123; {post.heartCount || 0}

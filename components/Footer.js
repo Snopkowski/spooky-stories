@@ -17,10 +17,7 @@ export default function Footer() {
             <Link>How it works</Link>
           </NextLink>
         </Stack>
-        <Text p={4}>
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem vel
-          veniam a consequuntur ad quasi unde ea quos pariatur minus!
-        </Text>
+        <Text p={4}>This text is just a placeholder. Have a great day!</Text>
       </SimpleGrid>
     </>
   );

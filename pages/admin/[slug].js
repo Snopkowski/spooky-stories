@@ -13,7 +13,6 @@ import {
   Text,
   Textarea,
   Heading,
-  Box,
   Button,
   Grid,
   Stack,
@@ -42,12 +41,12 @@ function PostManager() {
   const [post] = useDocumentData(postRef);
 
   return (
-    <Grid templateColumns='repeat(5, 1fr)' gap={4}>
+    <Grid templateColumns={{ base: '1fr', md: 'repeat(4, 1fr)' }} gap={4}>
       {post && (
         <>
-          <GridItem as='main' colSpan={4}>
+          <GridItem as='main' colSpan={3}>
             <Heading as='h1'>{post.title}</Heading>
-            <Text>ID: {post.slug}</Text>
+            <Text py={2}>ID: {post.slug}</Text>
 
             <PostForm
               postRef={postRef}

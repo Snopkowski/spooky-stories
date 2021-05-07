@@ -4,9 +4,10 @@ const colors = {
   bgLight: 'white',
   bgDark: '#0d1117',
   textDark: '#21262d',
-  brand: {
-    orange: '#f07e00',
-    green: '#3bbfa2',
+  theme: {
+    yellow: '#f8dc68',
+    blue: '#2ecbd1',
+    dark: '#161a27',
   },
 };
 
