@@ -1,0 +1,30 @@
+{
+    "cleanUrls": true,
+    "trailingSlash": false,
+    "headers": [
+      {
+        "source": "/fonts/inter-var-latin.woff2",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=31536000, immutable"
+          }
+        ]
+      }
+    ],
+    "redirects": [
+      
+      {
+        "source": "/github",
+        "destination": "https://github.com/"
+      },
+      {
+        "source": "/linkedin",
+        "destination": "https://www.linkedin.com/"
+      },
+      {
+        "source": "/twitter",
+        "destination": "https://twitter.com/"
+      }
+    ]
+  }
