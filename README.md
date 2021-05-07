@@ -10,6 +10,6 @@ Made with Next.js, Firebase, Chakra UI.
 - [ ] Firebase - Delete Posts
 - [x] Added stories
 - [ ] Social share
-- [ ] Format dates of posts
+- [x] Format dates of posts
 - [ ] Capitalize titles
 - [ ] SEO
