@@ -19,8 +19,6 @@ import { useRouter } from 'next/router';
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
 
-  const router = useRouter();
-
   return (
     <Flex as='main'>
       {user ? (
@@ -38,6 +36,7 @@ export default function Enter(props) {
 
 // Sign in with Google button
 function SignInButton() {
+  // auth providers..
   const signInWithGoogle = async () => {
     await auth.signInWithPopup(googleAuthProvider);
   };
@@ -64,12 +63,12 @@ export function SignOutButton() {
 
 // Username form
 function UsernameForm() {
+  const router = useRouter();
   const [formValue, setFormValue] = useState('');
   const [isValid, setIsValid] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const { user, username } = useContext(UserContext);
-
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -78,7 +77,7 @@ function UsernameForm() {
 
     const batch = firestore.batch();
     batch.set(userDoc, {
-      username: [formValue],
+      username: formValue,
       photoURL: user.photoURL,
       displayName: user.displayName,
     });
@@ -123,7 +122,7 @@ function UsernameForm() {
   return (
     !username && (
       <Stack spacing={8} as='section'>
-        <Heading as='h3'>Choose your Username</Heading>
+        <Heading as='h1'>Choose your Username</Heading>
         <form onSubmit={onSubmit}>
           <Input
             name='username'
@@ -133,12 +132,16 @@ function UsernameForm() {
             py={4}
           />
           <UsernameMessage
-            py={4}
             username={formValue}
             isValid={isValid}
             loading={loading}
           />
-          <Button py={4} type='submit' disabled={!isValid}>
+          <Button
+            py={4}
+            type='submit'
+            onClickCapture={() => router.push('/')}
+            disabled={!isValid}
+          >
             Choose
           </Button>
           <Stack spacing={8}>
@@ -166,6 +169,6 @@ function UsernameMessage({ username, isValid, loading }) {
   } else if (username && !isValid) {
     return <Text py={4}>That username is taken!</Text>;
   } else {
-    return <Text py={4}>It will be displayed publicly.</Text>;
+    return <Text py={4}>Username will be displayed publicly.</Text>;
   }
 }
