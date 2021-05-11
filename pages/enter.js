@@ -15,17 +15,18 @@ import {
 import { useEffect, useState, useCallback, useContext } from 'react';
 import debounce from 'lodash.debounce';
 import { useRouter } from 'next/router';
+import UserProfile from '../components/UserProfile';
 
 export default function Enter(props) {
   const { user, username } = useContext(UserContext);
 
   return (
-    <Flex as='main'>
+    <Flex as='main' justifyContent='center'>
       {user ? (
         !username ? (
           <UsernameForm />
         ) : (
-          <SignOutButton />
+          <UserProfile user={user} />
         )
       ) : (
         <SignInButton />

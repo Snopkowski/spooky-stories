@@ -13,3 +13,4 @@ Made with Next.js, Firebase, Chakra UI.
 - [x] Format dates of posts
 - [ ] Capitalize titles
 - [ ] SEO
+- [ ] ...

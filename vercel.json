@@ -11,20 +11,5 @@
           }
         ]
       }
-    ],
-    "redirects": [
-      
-      {
-        "source": "/github",
-        "destination": "https://github.com/"
-      },
-      {
-        "source": "/linkedin",
-        "destination": "https://www.linkedin.com/"
-      },
-      {
-        "source": "/twitter",
-        "destination": "https://twitter.com/"
-      }
     ]
   }
